@@ -6,6 +6,7 @@ services:
             context: .
             dockerfile: Dockerfile
         # depends_on: postgres
+        container_name: recipes_api
         env_file:
             - ./.env
         ports:
