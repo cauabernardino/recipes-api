@@ -7,8 +7,9 @@ services:
             dockerfile: Dockerfile
         # depends_on: postgres
         container_name: recipes_api
-        env_file:
-            - ./.env
+        environment:
+            - DEBUG=${DEBUG}
+            - DJANGO_KEY=${DJANGO_KEY}
         ports:
             - "8000:8000"
         volumes:
