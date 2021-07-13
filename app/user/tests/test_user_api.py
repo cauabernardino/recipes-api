@@ -154,7 +154,7 @@ class PrivateUserAPITests(TestCase):
         )
 
         self.client = APIClient()
-        self.client_force_authenticate(user=self.user)
+        self.client.force_authenticate(user=self.user)
 
     def test_retrieve_profile_success(self):
         """should retrieve profile for logged in user"""
@@ -178,8 +178,8 @@ class PrivateUserAPITests(TestCase):
         """should update the profile for an authenticated user"""
 
         payload = {
-            "email": "test_new@mail.com",
-            "name": "New Test Name"
+            "name": "New Test Name",
+            "password": "newtestpass"
         }
 
         res = self.client.patch(ME_URL, payload)
